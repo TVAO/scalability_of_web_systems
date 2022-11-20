@@ -1,0 +1,10 @@
+runtime: go                    # the runtime (python, java, go, php)
+api_version: go1.8             # the runtime version
+
+handlers:
+
+- url: /images                  # /images handled as GET request based on location query parameter 
+  script: service.images 
+
+- url: /.*                      # root url (/) handled by the Go application for all requests 
+  script: _go_service           # Pass the request to the Go code in app package - No other URLs match this pattern 
